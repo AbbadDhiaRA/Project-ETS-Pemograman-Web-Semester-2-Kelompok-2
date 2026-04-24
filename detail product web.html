@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Libro - Detail Buku Anatomic Habits</title>
+  <style>
+    :root {
+      --cream: #f5ede6;
+      --brown: #7b3f2a;
+      --brown-dark: #5f3112;
+      --white: #ffffff;
+      --text: #2b2b2b;
+      --border: #e6d7ca;
+      --soft: #f9f4ef;
+      --gold: #f4b400;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+    }
+
+    .header {
+      background: var(--white);
+      padding: 18px 40px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      <img id="logo" src="logo-removebg-preview.png" style="width: 30%;" alt="logo">
+    </div>
+    }
+
+    .search-bar {
+      width: 45%;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 12px 18px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 40px auto;
+      padding: 0 30px;
+    }
+
+    .product-section {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .book-image {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .book-image img {
+      width: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    .image-url-box {
+      margin-top: 20px;
+    }
+
+    .image-url-box input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .image-url-box button {
+      width: 100%;
+      padding: 12px;
+      background: var(--brown);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .details h1 {
+      font-size: 46px;
+      color: var(--brown-dark);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .author {
+      font-size: 20px;
+      color: #7d6a5d;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 52px;
+      font-weight: bold;
+      color: var(--brown);
+      margin-bottom: 15px;
+    }
+
+    .old-price {
+      font-size: 26px;
+      color: #999;
+      text-decoration: line-through;
+      margin-left: 10px;
+    }
+
+    .discount {
+      display: inline-block;
+      background: #fff;
+      color: #c0392b;
+      border: 1px solid #f0d0cc;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .btn {
+      padding: 14px 24px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: var(--brown);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--brown);
+    }
+
+    .description {
+      margin-top: 30px;
+    }
+
+    .description h2,
+    .reviews h2 {
+      color: var(--brown-dark);
+      margin-bottom: 15px;
+      font-size: 28px;
+    }
+
+    .scroll-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 20px;
+      max-height: 250px;
+      overflow-y: auto;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    .reviews {
+      margin-top: 60px;
+      background: var(--white);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .review-card {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    .review-card:last-child {
+      border-bottom: none;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .reviewer {
+      font-weight: bold;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .product-section {
+        grid-template-columns: 1fr;
+      }
+
+      .search-bar {
+        width: 60%;
+      }
+
+      .details h1 {
+        font-size: 34px;
+      }
+
+      .price {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+     <img id="logo" src="logo-removebg-preview.png" style="width: 30%;" alt="logo">
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Cari judul buku, penulis, atau kategori...">
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="product-section">
+      <div class="book-image">
+        <a id="bookLink" href="#" target="_blank">
+          <img id="bookCover" src="anatomic habits.jpeg" alt="Cover Buku">
+        </a>
+
+        </div>
+
+      <div class="details">
+        <div class="author">James Clear</div>
+        <h1>Atomic Habits: Tiny Changes, Remarkable Results</h1>
+
+        <div class="price">
+          Rp86.400 <span class="old-price">Rp108.000</span>
+        </div>
+
+        <div class="discount">Diskon 20%</div>
+
+        <div class="actions">
+          <button class="btn btn-primary" onclick="tambahKeranjang()">+ Tambah ke Keranjang</button>
+          <button class="btn btn-secondary" onclick="toggleFavorit(this)">❤ Favorit</button>
+          <script>
+            function tambahKeranjang() {
+              window.location.href = "C:\\Users\\HP VICTUS\\OneDrive\\Documents\\PEMROGRAMAN WEB\\Keranjang E-Libro web.html";
+            }
+          </script>
+        </div>
+
+        <div class="description">
+          <h2>Deskripsi Buku</h2>
+          <div class="scroll-box">
+            Atomic Habits: Perubahan Kecil yang Memberikan Hasil Luar Biasa adalah buku kategori self improvement karya James Clear. Pada umumnya, perubahan-perubahan kecil seringkali terkesan tak bermakna karena tidak langsung membawa perubahan nyata pada hidup suatu manusia. Jika diumpamakan sekeping koin tidak bisa menjadikan kaya, suatu perubahan positif seperti meditasi selama satu menit atau membaca buku satu halaman setiap hari mustahil menghasilkan perbedaan yang bisa terdeteksi. Namun hal tersebut tidak sejalan dengan pemikiran James Clear, ia merupakan seorang pakar dunia yang terkenal dengan 'habits' atau kebiasaan. Ia tahu bahwa tiap perbaikan kecil bagaikan menambahkan pasir ke sisi positif timbangan dan akan menghasilkan perubahan nyata yang berasal dari efek gabungan ratusan bahkan ribuan keputusan kecil. Ia menamakan perubahan kecil yang membawa pengaruh yang luar biasa dengan nama atomic habits.
+            <br><br>
+            Dalam buku ini James Clear, seorang penulis sekaligus pembicara yang sangat terkenal akan topik 'habit' memaparkan bahwa pada hakikatnya sebuah perubahan kecil (Atomic Habit) sering dianggap remeh, sebenarnya akan memberikan hasil yang sangat menjanjikan dalam hidup. Yang dipandang penting dalam perubahan perilaku bukan satu persen perbaikan tunggal, melainkan ribuan perbaikan atau sekumpulan atomic habits yang saling bertumpuk dan menjadi unit dasar dalam suatu sistem yang penting.
+            James Clear menjelaskan bahwa terdapat tiga tingkat perubahan yaitu perubahan hasil, perubahan proses, dan perubahan identitas. Cara paling efektif dalam mengubah kebiasaan adalah bukan berfokus pada apa yang ingin dicapai, melainkan tipe orang seperti apa yang diinginkan. Identitas seseorang muncul dari kebiasaan yang dilakukan setiap harinya. Alasan utama kebiasaan penting karena kebiasaan dapat mengubah keyakinan tentang diri sendiri.
+            Clear juga memperkenalkan empat Kaidah Perubahan Perilaku untuk membantu mengubah perilaku manusia yaitu menjadikannya terlihat, menjadikannya menarik, menjadikannya mudah, menjadikannya memuaskan. Keempat kaidah ini tidak hanya mengajari kita cara menciptakan kebiasaan-kebiasaan baru, melainkan menyingkapi sejumlah wawasan menarik tentang perilaku manusia.
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="reviews">
+      <h2>Ulasan Pembaca</h2>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="reviewer">Alya</div>
+        <p>Atomic Habits adalah buku tentang kebiasaan yang menjelaskan bahwa sesuatu yang kecil bisa menjadi dasyat bila ditumpuk. Konsep yang disajikan James Clear di buku ini mengenai kebiasaan begitu bagus dan membuat saya memiliki wawasan tentang apa itu kebiasaan. Saya suka kisah-kisah pembawa bab yang disajikan di buku ini, membuat saya sebagai pembaca tau mau ke mana arah pembahasan ini. James Clear juga menyajikan beberapa trik sederhana yang membantu dalam perubahan perilaku. Ingin menjadi lebih baik? saya merekomendasikan buku ini untuk dibaca, yang dimana mungkin akan merubah hidup Anda.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="reviewer">Raka</div>
+        <p>Yang ingin berubah, saya sangat menyarankan buku ini, karena isinya sangat bagus bagi pemula yang ingin berubah tahap demi tahap.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="reviewer">Nadia</div>
+        <p>Buku ini sangat inspiratif dan membantu saya membangun kebiasaan baik secara konsisten setiap hari.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    // Tempel link cover buku baru pada variabel di bawah ini
+    const coverBuku = 'anatomic habits.jpeg';
+    const linkBuku = 'file:///C:/Users/HP%20VICTUS/OneDrive/Documents/PEMROGRAMAN%20WEB/Atomic%20Habits.pdf';
+
+    document.getElementById('bookCover').src = coverBuku;
+    document.getElementById('bookLink').href = linkBuku; ;
+  </script>
+</body>
+</html>
