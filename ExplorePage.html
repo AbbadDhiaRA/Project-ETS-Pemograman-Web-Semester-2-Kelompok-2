@@ -1,0 +1,447 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>E-Libro Explore</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+display:flex;
+background:#f6efe8;
+}
+
+/* SIDEBAR */
+.sidebar{
+width:90px;
+height:100vh;
+background:white;
+position:fixed;
+left:0;
+top:0;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding-top:30px;
+box-shadow:4px 0 20px rgba(0,0,0,0.06);
+}
+
+.logo{
+margin-bottom:50px;
+}
+
+.menu{
+display:flex;
+flex-direction:column;
+gap:30px;
+}
+
+.menu a{
+width:64px;
+height:64px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+background:#f3e9df;
+border-radius:18px;
+transition:0.3s;
+color:inherit;
+}
+
+.material-icons{
+font-size:30px;
+color:#5D3023;
+transition:0.3s;
+}
+
+.menu a:hover{
+background:#b77b4b;
+transform:scale(1.08);
+}
+
+.menu a:hover .material-icons{
+color:white;
+transform:scale(1.1);
+}
+
+/* MAIN */
+.main-content{
+margin-left:120px;
+width:calc(100% - 120px);
+}
+
+/* HEADER */
+.header{
+padding:30px 50px;
+}
+
+.header h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.header p{
+color:#777;
+margin-bottom:20px;
+}
+
+/* SEARCH */
+.search-box{
+display:flex;
+gap:10px;
+}
+
+.search-box input{
+flex:1;
+padding:14px;
+border:none;
+outline:none;
+border-radius:12px;
+}
+
+.search-box button{
+background:#b77b4b;
+color:white;
+border:none;
+padding:14px 25px;
+border-radius:12px;
+cursor:pointer;
+}
+
+.search-box button:hover{
+background:#6b3e26;
+}
+
+/* FILTER */
+.filters{
+margin-top:20px;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.filters button{
+padding:10px 16px;
+border:none;
+background:white;
+border-radius:30px;
+cursor:pointer;
+font-size:13px;
+}
+
+.filters button:hover{
+background:#b77b4b;
+color:white;
+}
+
+/* ===== SLIDER ===== */
+.slider{
+overflow:hidden;
+position:relative;
+padding:30px 50px;
+}
+
+.slide-track{
+display:flex;
+gap:20px;
+width:max-content;
+animation: scroll 20s linear infinite;
+}
+
+.book-card{
+background:white;
+padding:12px;
+border-radius:14px;
+text-align:center;
+transition:0.3s;
+box-shadow:0 6px 20px rgba(0,0,0,0.05);
+min-width:140px;
+}
+
+.book-card:hover{
+transform:translateY(-6px);
+}
+
+.book-card img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.book-card h3{
+font-size:13px;
+margin-bottom:4px;
+}
+
+.book-card p{
+font-size:11px;
+color:#777;
+}
+
+.price{
+margin-top:6px;
+font-weight:bold;
+font-size:12px;
+color:#6b3e26;
+}
+
+@keyframes scroll{
+0%{ transform: translateX(0); }
+100%{ transform: translateX(-50%); }
+}
+
+.slider:hover .slide-track{
+animation-play-state: paused;
+}
+
+.slider::before,
+.slider::after{
+content:'';
+position:absolute;
+top:0;
+width:50px;
+height:100%;
+z-index:2;
+}
+
+.slider::before{
+left:0;
+background:linear-gradient(to right, #f6efe8, transparent);
+}
+
+.slider::after{
+right:0;
+background:linear-gradient(to left, #f6efe8, transparent);
+}
+
+/* ===== GENRE SHELF ===== */
+.genre-container{
+padding: 20px 50px 60px;
+}
+
+.genre-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
+}
+
+.genre-header h2{
+font-size:20px;
+color:#5D3023;
+}
+
+.genre-header button{
+background:#b77b4b;
+color:white;
+border:none;
+padding:8px 14px;
+border-radius:10px;
+cursor:pointer;
+font-size:12px;
+}
+
+.genre-header button:hover{
+background:#6b3e26;
+}
+
+.shelf{
+display:flex;
+gap:18px;
+padding:15px 10px 30px;
+position:relative;
+overflow-x:auto;
+}
+
+.shelf::-webkit-scrollbar{
+display:none;
+}
+
+.shelf::after{
+content:'';
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:10px;
+background:linear-gradient(to bottom,#ddd,#bbb);
+border-radius:6px;
+}
+
+.shelf img{
+width:110px;
+height:160px;
+object-fit:cover;
+border-radius:8px;
+box-shadow:0 6px 12px rgba(0,0,0,0.15);
+transition:0.3s;
+cursor:pointer;
+}
+
+.shelf img:hover{
+transform:translateY(-10px) scale(1.05);
+}
+
+.genre-section{
+margin-bottom:40px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.sidebar{
+width:70px;
+}
+
+.menu a{
+width:50px;
+height:50px;
+}
+
+.main-content{
+margin-left:85px;
+width:calc(100% - 85px);
+}
+
+.header,
+.slider{
+padding:20px;
+}
+
+.genre-container{
+padding:20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<div class="logo">
+<img src="Logo E-Libro.png" width="100">
+</div>
+
+<div class="menu">
+<a href="#"><span class="material-icons">home</span></a>
+<a href="#"><span class="material-icons">search</span></a>
+<a href="#"><span class="material-icons">menu_book</span></a>
+<a href="#"><span class="material-icons">favorite</span></a>
+<a href="#"><span class="material-icons">person</span></a>
+</div>
+</div>
+
+<!-- MAIN -->
+<div class="main-content">
+
+<div class="header">
+<h1>Explore Books</h1>
+<p>Temukan buku favoritmu</p>
+
+<div class="search-box">
+<input type="text" placeholder="Cari judul, penulis, topik...">
+<button>Search</button>
+</div>
+
+<div class="filters">
+<button>Best Seller</button>
+<button>Self Improvement</button>
+<button>Campus Zone</button>
+<button>Romance</button>
+<button>Fiksi Remaja</button>
+</div>
+</div>
+
+<!-- SLIDER -->
+<div class="slider">
+<div class="slide-track">
+
+<div class="book-card">
+<img src="Laut Bercerita.jpeg">
+<h3>Laut Bercerita</h3>
+<p>Leila S. Chudori</p>
+<div class="price">Rp50.000</div>
+</div>
+
+<div class="book-card">
+<img src="Seporsi Mie Ayam.jpeg">
+<h3>Seporsi Mie Ayam Sebelum Mati</h3>
+<p>Brian Khrisna</p>
+<div class="price">Rp75.000</div>
+</div>
+
+<div class="book-card">
+<img src="Atomic.jpeg">
+<h3>Atomic Habits</h3>
+<p>James Clear</p>
+<div class="price">Rp90.000</div>
+</div>
+
+<!-- DUPLIKAT -->
+<div class="book-card">
+<img src="Laut Bercerita.jpeg">
+<h3>Laut Bercerita</h3>
+<p>Leila S. Chudori</p>
+<div class="price">Rp50.000</div>
+</div>
+
+</div>
+</div>
+
+<!-- ===== GENRE ===== -->
+<div class="genre-container">
+
+<div class="genre-section">
+<div class="genre-header">
+<h2>Self Improvement</h2>
+<button>Lihat Semua</button>
+</div>
+
+<div class="shelf">
+<img src="Laut Bercerita.jpeg">
+<img src="Seporsi Mie Ayam.jpeg">
+<img src="Atomic.jpeg">
+<img src="https://via.placeholder.com/150x220">
+<img src="https://via.placeholder.com/150x220">
+</div>
+</div>
+
+<div class="genre-section">
+<div class="genre-header">
+<h2>Campus Zone</h2>
+<button>Lihat Semua</button>
+</div>
+
+<div class="shelf">
+<img src="Atomic.jpeg">
+<img src="https://via.placeholder.com/150x220">
+<img src="https://via.placeholder.com/150x220">
+<img src="https://via.placeholder.com/150x220">
+<img src="https://via.placeholder.com/150x220">
+</div>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```
