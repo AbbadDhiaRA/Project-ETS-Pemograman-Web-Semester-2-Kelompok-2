@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>My Library - E-Libro</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f3e9df;
+}
+
+/* HEADER */
+.header {
+  padding: 30px 50px 10px;
+}
+
+.header h1 {
+  font-size: 28px;
+}
+
+.header p {
+  color: #777;
+}
+/* SEARCH */
+.search-box {
+  padding: 0 50px 20px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+/* LIBRARY GRID */
+.library {
+  padding: 30px 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.book-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+}
+
+/* FAVORITE (checkbox trick) */
+.fav-container input {
+  display: none;
+}
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.fav-container input:checked + .heart {
+  color: red;
+}
+
+/* IMAGE */
+.book-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.book-card h3 {
+  font-size: 14px;
+}
+
+.book-card p {
+  font-size: 12px;
+  color: #777;
+}
+
+/* PROGRESS */
+.progress {
+  background: #eee;
+  height: 6px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #6b3e26;
+  border-radius: 10px;
+}
+
+.progress-text {
+  font-size: 12px;
+  color: #555;
+}
+/* BUTTON */
+.read-btn {
+  margin-top: 10px;
+  padding: 8px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #b77b4b;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.read-btn:hover {
+  background: #6b3e26;
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+  <h1>My Library</h1>
+  <p>Koleksi buku yang sudah kamu beli</p>
+</div>
+
+<!-- SEARCH (berfungsi pindah halaman) -->
+<form class="search-box" action="search.html" method="GET">
+  <input type="text" name="q" placeholder="Cari buku">
+</form>
+
+<div class="library">
+<!-- Buku A -->
+  <div class="book-card">
+    <label class="fav-container">
+      <input type="checkbox">
+      <span class="heart">❤</span>
+    </label>
+    
+    <img src="laut bercerita.jpg">
+    <h3>Laut Bercerita</h3>
+    <p>Leila S. Chudori</p>
+    <div class="progress">
+      <div class="progress-bar" style="width: 60%;"></div>
+    </div>
+    <div class="progress-text">60%</div>
+    <button class="read-btn" onclick="location.href='detail.html'">
+      Continue Reading
+    </button>
+  </div>
+  <!-- Buku B -->
+  <div class="book-card">
+    <label class="fav-container">
+      <input type="checkbox">
+      <span class="heart">❤</span>
+    </label>
+    <img src="Seporsi.jpg">
+    <h3>Seporsi Mie Ayam</h3>
+    <p>Brian Khrisna</p>
+    <div class="progress">
+      <div class="progress-bar" style="width: 30%;"></div>
+    </div>
+    <div class="progress-text">30%</div>
+    <button class="read-btn" onclick="location.href='detail.html'">
+      Continue Reading
+    </button>
+  </div>
+<!-- Buku C -->
+  <div class="book-card">
+    <label class="fav-container">
+      <input type="checkbox">
+      <span class="heart">❤</span>
+    </label>
+    <img src="Atomic.jpg">
+    <h3>Atomic Habits</h3>
+    <p>James Clear</p>
+    <div class="progress">
+      <div class="progress-bar" style="width: 80%;"></div>
+    </div>
+    <div class="progress-text">80%</div>
+    <button class="read-btn" onclick="window.open('gambar/byuku.pdf')">
+  Continue Reading
+</button>
+  </div>
+  
+<!-- Buku D -->
+  <div class="book-card">
+    <label class="fav-container">
+      <input type="checkbox">
+      <span class="heart">❤</span>
+    </label>
+    <img src="https://via.placeholder.com/120x160">
+    <h3>Judul Buku D</h3>
+    <p>Penulis D</p>
+    <div class="progress">
+      <div class="progress-bar" style="width: 45%;"></div>
+    </div>
+    <div class="progress-text">45%</div>
+    <button class="read-btn" onclick="location.href='detail.html'">
+      Continue Reading
+    </button>
+  </div>
+
+</div>
+
+</body>
+</html>
