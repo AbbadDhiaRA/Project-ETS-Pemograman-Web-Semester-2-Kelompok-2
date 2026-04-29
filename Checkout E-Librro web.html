@@ -6,357 +6,182 @@
   <title>E-Libro - Checkout</title>
   <style>
     :root {
-      --cream: #f5ede6;
-      --brown: #7b3f2a;
-      --brown-dark: #5f3112;
+      --ivory: #F2E9DC;
+      --terracotta: #C08552;
+      --brown: #5D3023;
+      --copper: #895737;
+      --beige: #D9B49D;
+      --green: #2E8B57;
       --white: #ffffff;
-      --text: #2b2b2b;
-      --border: #e6d7ca;
-      --soft: #f9f4ef;
-      --gold: #f4b400;
-      --danger: #d62839;
-      --success: #4f8a10;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--cream);
-      color: var(--text);
-    }
-
-    .header {
-      background: var(--cream);
-      padding: 18px 40px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header img {
-      width: 220px;
-    }
-
-    .container {
-      max-width: 1450px;
-      margin: 35px auto;
-      padding: 0 30px;
-    }
-
-    h1 {
-      font-size: 48px;
-      color: var(--brown-dark);
-      margin-bottom: 30px;
-    }
-
-    .checkout-layout {
-      display: grid;
-      grid-template-columns: 2fr 0.9fr;
-      gap: 35px;
-      align-items: start;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      padding: 30px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    }
-
-    .section-title {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--brown-dark);
-      margin-bottom: 22px;
-    }
-
-    .address-form {
-      display: grid;
-      gap: 16px;
-    }
-
-    .address-form input,
-    .address-form textarea,
-    select {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-size: 16px;
-      outline: none;
-      background: #fff;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    .order-card {
-      margin-top: 28px;
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .order-header {
-      background: var(--soft);
-      padding: 25px 30px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .store-name {
-      margin-top: 10px;
-      color: #6f6257;
-      font-size: 18px;
-    }
-
-    .order-body {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 25px;
-      padding: 30px;
-      align-items: center;
-    }
-
-    .product-info {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      border-right: 1px solid var(--border);
-      padding-right: 20px;
-    }
-
-    .product-info img {
-      width: 100px;
-      border-radius: 10px;
-    }
-
-    .format-badge {
-      display: inline-block;
-      background: var(--soft);
-      color: #7d6a5d;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
-
-    .product-title {
-      font-size: 19px;
-      margin-bottom: 8px;
-      color: var(--brown-dark);
-    }
-
-    .price {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--brown);
-    }
-
-    .old-price {
-      margin-left: 8px;
-      color: #aaa;
-      text-decoration: line-through;
-    }
-
-    .discount {
-      margin-left: 8px;
-      background: #fdecef;
-      color: var(--danger);
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-
-    .shipping-note {
-      margin-top: 15px;
-      background: #fff3e8;
-      color: #cc6f00;
-      padding: 14px;
-      border-radius: 10px;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .order-total {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 30px 28px;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--brown-dark);
-    }
-
-    .sidebar h3 {
-      font-size: 24px;
-      color: var(--brown-dark);
-      margin-bottom: 18px;
-    }
-
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 14px;
-      color: #6d6d6d;
-      font-size: 17px;
-    }
-
-    .summary-row.discount-row {
-      color: var(--danger);
-    }
-
-    .divider {
-      border-top: 1px solid var(--border);
-      margin: 22px 0;
-    }
-
-    .total-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--brown-dark);
-      margin-bottom: 25px;
-    }
-
-    .pay-btn {
-      width: 100%;
-      padding: 18px;
-      border: none;
-      border-radius: 16px;
-      background: var(--brown);
-      color: white;
-      font-size: 22px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .pay-btn:hover {
-      background: var(--brown-dark);
-    }
-
-    @media (max-width: 1024px) {
-      .checkout-layout,
-      .order-body {
-        grid-template-columns: 1fr;
-      }
-
-      .product-info {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-        padding-right: 0;
-        padding-bottom: 20px;
-      }
-    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,sans-serif;background:var(--ivory);color:var(--brown)}
+    .container{max-width:1400px;margin:auto;padding:30px 20px}
+    h1{font-size:2.4rem;margin-bottom:25px}
+    .layout{display:grid;grid-template-columns:2fr 1fr;gap:30px}
+    .card{background:#fff;border-radius:20px;padding:25px;box-shadow:0 10px 30px rgba(0,0,0,.08);margin-bottom:25px}
+    .form-group{margin-bottom:16px}
+    label{display:block;margin-bottom:8px;font-weight:700}
+    input,textarea{width:100%;padding:14px;border:2px solid #ddd;border-radius:12px;font-size:1rem}
+    textarea{min-height:120px;resize:vertical}
+    .save-btn,.checkout-btn{width:100%;padding:15px;border:none;border-radius:14px;font-weight:700;cursor:pointer;margin-top:12px}
+    .save-btn{background:var(--terracotta);color:#fff}
+    .save-btn.saved{background:var(--green)}
+    .checkout-btn{background:var(--brown);color:#fff}
+    .item{display:flex;gap:15px;padding:15px 0;border-bottom:1px solid #eee;align-items:center}
+    .item img{width:80px;height:110px;object-fit:cover;border-radius:10px}
+    .item:last-child{border-bottom:none}
+    .summary-row{display:flex;justify-content:space-between;margin:14px 0}
+    .total-row{border-top:2px solid #eee;padding-top:18px;margin-top:18px;font-size:1.2rem;font-weight:700}
+    .success-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);align-items:center;justify-content:center}
+    .success-content{background:#fff;padding:35px;border-radius:20px;text-align:center;max-width:450px}
+    @media(max-width:900px){.layout{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <header class="header">
-    <img src="logo-removebg-preview.png" alt="Logo E-Libro">
-  </header>
-
   <div class="container">
     <h1>Checkout</h1>
-
-    <div class="checkout-layout">
+    <div class="layout">
       <div>
         <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:22px;">
-            <div class="section-title" style="margin-bottom:0;">Alamat Pengiriman</div>
-            <button type="button" onclick="simpanAlamat(this)" style="background:var(--brown); color:white; border:none; padding:10px 18px; border-radius:12px; font-size:14px; font-weight:600; cursor:pointer;">Simpan</button>
+          <h2 style="margin-bottom:20px">Alamat Pengiriman</h2>
+          <div class="form-group">
+            <label>Nama Penerima</label>
+            <input type="text" id="recipientName" placeholder="Masukkan nama penerima">
           </div>
-          <div class="address-form">
-            <input type="text" placeholder="Nama Penerima">
-            <input type="tel" placeholder="Nomor Telepon">
-            <textarea placeholder="Masukkan alamat lengkap Anda"></textarea>
+          <div class="form-group">
+            <label>Nomor Telepon</label>
+            <input type="tel" id="recipientPhone" placeholder="Masukkan nomor telepon">
           </div>
+          <div class="form-group">
+            <label>Alamat Lengkap</label>
+            <textarea id="recipientAddress" placeholder="Masukkan alamat lengkap"></textarea>
+          </div>
+          <button id="saveAddressBtn" class="save-btn" onclick="saveAddress()">Simpan Alamat</button>
         </div>
 
-        <div class="card order-card">
-          <div class="order-header">
-            <div class="section-title">Pesanan</div>
-            <div class="store-name"> E-Libro</div>
-          </div>
-
-          <div class="order-body">
-            <div class="product-info">
-              <img src="anatomic habits.jpeg" alt="Atomic Habits">
-              <div>
-                <div class="format-badge">Soft Cover</div>
-                <div class="product-title">Atomic Habits: Perubahan Kecil yang Memberikan Hasil Luar Biasa</div>
-                <div>1 barang</div>
-                <div style="margin-top:10px;">
-                  <span class="price">Rp86.400</span>
-                  <span class="old-price">Rp108.000</span>
-                  <span class="discount">20%</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <label style="font-weight:600; color:var(--brown-dark);">Metode Pengiriman</label>
-              <select style="margin-top:10px;">
-                <option>Ambil di Toko E-Libro Terdekat</option>
-                <option>Pengiriman Reguler</option>
-                <option>Pengiriman Express</option>
-              </select>
-
-              <div class="shipping-note">
-                Pesanan dapat diambil setelah menerima email berisi kode unik. Tunjukkan email tersebut saat pengambilan pesanan.
-              </div>
-            </div>
-          </div>
-
-          <div class="order-total">
-            <span>Total Pesanan</span>
-            <span>Rp86.400</span>
-          </div>
+        <div class="card">
+          <h2 style="margin-bottom:20px">Pesanan Anda</h2>
+          <div id="checkoutItemsContainer"></div>
         </div>
       </div>
 
-      <div class="card sidebar">
-        <h3>Metode Pembayaran</h3>
-        <select>
-          <option>QRIS</option>
-          <option>Transfer Bank</option>
-          <option>E-Wallet</option>
-          <option>Kartu Kredit/Debit</option>
-        </select>
-
-        <div style="margin-top:35px;">
-          <h3>Ringkasan Belanja</h3>
-          <div class="summary-row"><span>Total Harga </span><span>Rp108.000</span></div>
-          <div class="summary-row"><span>Total Biaya Pengiriman</span><span>Rp0</span></div>
-          <div class="summary-row discount-row"><span>Diskon Belanja</span><span>-Rp21.600</span></div>
-
-          <div class="divider"></div>
-
-          <div class="total-row">
-            <span>Total Belanja</span>
-            <span>Rp86.400</span>
-          </div>
-
-          <button class="pay-btn" onclick="bayarSekarang()">Bayar</button>
-        </div>
+      <div class="card">
+        <h2>Ringkasan Pembayaran</h2>
+        <div class="summary-row"><span>Total Item</span><span id="totalItems">0</span></div>
+        <div class="summary-row"><span>Total Harga</span><span id="subtotal">Rp 0</span></div>
+        <div class="summary-row"><span>Diskon</span><span id="discount">-Rp 0</span></div>
+        <div class="summary-row"><span>Ongkos Kirim</span><span id="shipping">Rp 15.000</span></div>
+        <div class="summary-row total-row"><span>Total Bayar</span><span id="grandTotal">Rp 0</span></div>
+        <button class="checkout-btn" onclick="placeOrder()">Bayar Sekarang</button>
       </div>
     </div>
   </div>
 
+  <div id="successModal" class="success-modal">
+    <div class="success-content">
+      <h2 style="color:var(--green);margin-bottom:15px">Pembayaran Berhasil!</h2>
+      <p>Pesanan Anda sedang diproses.</p>
+      <button class="checkout-btn" onclick="closeModal()">Kembali ke Keranjang</button>
+    </div>
+  </div>
+
   <script>
-    function simpanAlamat(button) {
-      button.textContent = '✓ Tersimpan';
-      button.style.background = '#4f8a10';
-      alert('Alamat berhasil disimpan');
+    let checkoutItems = JSON.parse(localStorage.getItem('checkoutItems')) || [];
+
+    if (!checkoutItems || checkoutItems.length === 0) {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      checkoutItems = cartItems.filter(item => (Number(item.quantity) || 0) > 0);
     }
 
-    function bayarSekarang() {
-      alert('Pesanan Anda berhasil!');
+    function formatRupiah(number) {
+      const value = Number(number) || 0;
+      return 'Rp ' + value.toLocaleString('id-ID');
     }
+
+    function renderCheckoutItems() {
+      const container = document.getElementById('checkoutItemsContainer');
+      if (!checkoutItems.length) {
+        container.innerHTML = '<p>Tidak ada item untuk checkout.</p>';
+        return;
+      }
+
+      container.innerHTML = checkoutItems.map(item => `
+        <div class="item">
+          <img src="${item.image}" alt="${item.title}">
+          <div style="flex:1">
+            <h3>${item.title}</h3>
+            <p>${item.author}</p>
+            <p>Jumlah: ${Number(item.quantity) || 1}</p>
+          </div>
+          <strong>${formatRupiah((Number(item.discountPrice) || 0) * (Number(item.quantity) || 1))}</strong>
+        </div>
+      `).join('');
+    }
+
+    function updateSummary() {
+      const shipping = 15000;
+      const totalItems = checkoutItems.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
+      const subtotal = checkoutItems.reduce((sum, item) => sum + ((Number(item.price) || 0) * (Number(item.quantity) || 0)), 0);
+      const total = checkoutItems.reduce((sum, item) => sum + ((Number(item.discountPrice) || 0) * (Number(item.quantity) || 0)), 0);
+      const discount = subtotal - total;
+      const grandTotal = total + shipping;
+
+      document.getElementById('totalItems').textContent = totalItems;
+      document.getElementById('subtotal').textContent = formatRupiah(subtotal);
+      document.getElementById('discount').textContent = '-' + formatRupiah(discount);
+      document.getElementById('grandTotal').textContent = formatRupiah(grandTotal);
+    }
+
+    function saveAddress() {
+      const addressData = {
+        name: document.getElementById('recipientName').value,
+        phone: document.getElementById('recipientPhone').value,
+        address: document.getElementById('recipientAddress').value
+      };
+
+      localStorage.setItem('shippingAddress', JSON.stringify(addressData));
+
+      const btn = document.getElementById('saveAddressBtn');
+      btn.textContent = '✓ Tersimpan';
+      btn.classList.add('saved');
+    }
+
+    function loadAddress() {
+      const saved = JSON.parse(localStorage.getItem('shippingAddress'));
+      if (!saved) return;
+
+      document.getElementById('recipientName').value = saved.name || '';
+      document.getElementById('recipientPhone').value = saved.phone || '';
+      document.getElementById('recipientAddress').value = saved.address || '';
+
+      const btn = document.getElementById('saveAddressBtn');
+      btn.textContent = '✓ Tersimpan';
+      btn.classList.add('saved');
+    }
+
+    function placeOrder() {
+      const existingOrders = JSON.parse(localStorage.getItem('orderHistory')) || [];
+      localStorage.setItem('orderHistory', JSON.stringify([...existingOrders, ...checkoutItems]));
+
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const remaining = cartItems.filter(cartItem =>
+        !checkoutItems.some(checkoutItem => checkoutItem.id === cartItem.id)
+      );
+
+      localStorage.setItem('cartItems', JSON.stringify(remaining));
+      localStorage.removeItem('checkoutItems');
+      document.getElementById('successModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('successModal').style.display = 'none';
+      window.location.href = 'keranjang E-Libro web.html';
+    }
+
+    loadAddress();
+    renderCheckoutItems();
+    updateSummary();
   </script>
 </body>
 </html>
