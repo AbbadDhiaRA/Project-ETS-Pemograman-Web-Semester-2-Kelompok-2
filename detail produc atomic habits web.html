@@ -2,22 +2,22 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>E-Libro - Detail Buku Dune</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Libro - Detail Buku Atomic Habits</title>
 
   <style>
     :root {
-      --cream:#f5ede6;
-      --brown:#7b3f2a;
-      --brown-dark:#5f3112;
-      --white:#ffffff;
-      --text:#2b2b2b;
-      --border:#e6d7ca;
-      --gold:#f4b400;
-      --red:#e74c3c;
+      --cream: #f5ede6;
+      --brown: #7b3f2a;
+      --brown-dark: #5f3112;
+      --white: #ffffff;
+      --text: #2b2b2b;
+      --border: #e6d7ca;
+      --gold: #f4b400;
+      --red: #e74c3c;
     }
 
-    * { box-sizing:border-box; margin:0; padding:0; }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       font-family:'Segoe UI',sans-serif;
@@ -56,6 +56,7 @@
       display:grid;
       grid-template-columns:420px 1fr;
       gap:50px;
+      align-items:start;
     }
 
     .book-image {
@@ -85,6 +86,24 @@
     .price {
       font-size:52px;
       color:var(--brown);
+      font-weight:bold;
+    }
+
+    .old-price {
+      font-size:26px;
+      color:#999;
+      text-decoration:line-through;
+      margin-left:10px;
+    }
+
+    .discount {
+      display:inline-block;
+      margin:15px 0;
+      padding:6px 12px;
+      border:1px solid #f0d0cc;
+      border-radius:8px;
+      color:var(--red);
+      background:#fff;
       font-weight:bold;
     }
 
@@ -124,7 +143,7 @@
     }
 
     .scroll-box {
-      background:var(--white);
+      background:white;
       border:1px solid var(--border);
       padding:20px;
       border-radius:15px;
@@ -134,6 +153,7 @@
       text-align:justify;
     }
 
+    /* REVIEW */
     .reviews {
       margin-top:60px;
       background:var(--white);
@@ -177,14 +197,18 @@
 <div class="container">
   <div class="product-section">
     <div class="book-image">
-      <img src="dune.jpeg">
+      <img src="anatomic habits.jpeg">
     </div>
 
     <div class="details">
-      <h1>Dune</h1>
-      <div class="author">Frank Herbert</div>
+      <h1>Atomic Habits</h1>
+      <div class="author">James Clear</div>
 
-      <div class="price">Rp129.000</div>
+      <div class="price">
+        Rp86.400 <span class="old-price">Rp108.000</span>
+      </div>
+
+      <div class="discount">Diskon 20%</div>
 
       <div class="actions">
         <button class="btn btn-primary" onclick="tambahKeKeranjang()">Keranjang</button>
@@ -192,22 +216,36 @@
       </div>
 
       <h2>Deskripsi</h2>
-      <div class="scroll-box">
-        Di planet Arrakis, kisah seorang pemuda bernama Paul Atreides bermula. Ayah Paul ditunjuk sebagai penguasa planet gurun yang dikenal sebagai Dune.
-        <br><br>
-        Meski keras dan berbahaya, Arrakis menyimpan rempah paling berharga di alam semesta. Ketika keluarganya dikhianati, Paul harus bertahan hidup di padang pasir yang ganas.
-        Perjalanan ini membawanya menuju takdir besar yang akan mengubah masa depan Arrakis dan seluruh galaksi.
-      </div>
+     <div class="scroll-box">
+            Atomic Habits: Perubahan Kecil yang Memberikan Hasil Luar Biasa adalah buku kategori self improvement karya James Clear. Pada umumnya, perubahan-perubahan kecil seringkali terkesan tak bermakna karena tidak langsung membawa perubahan nyata pada hidup suatu manusia. Jika diumpamakan sekeping koin tidak bisa menjadikan kaya, suatu perubahan positif seperti meditasi selama satu menit atau membaca buku satu halaman setiap hari mustahil menghasilkan perbedaan yang bisa terdeteksi. Namun hal tersebut tidak sejalan dengan pemikiran James Clear, ia merupakan seorang pakar dunia yang terkenal dengan 'habits' atau kebiasaan. Ia tahu bahwa tiap perbaikan kecil bagaikan menambahkan pasir ke sisi positif timbangan dan akan menghasilkan perubahan nyata yang berasal dari efek gabungan ratusan bahkan ribuan keputusan kecil. Ia menamakan perubahan kecil yang membawa pengaruh yang luar biasa dengan nama atomic habits.
+            <br><br>
+            Dalam buku ini James Clear, seorang penulis sekaligus pembicara yang sangat terkenal akan topik 'habit' memaparkan bahwa pada hakikatnya sebuah perubahan kecil (Atomic Habit) sering dianggap remeh, sebenarnya akan memberikan hasil yang sangat menjanjikan dalam hidup. Yang dipandang penting dalam perubahan perilaku bukan satu persen perbaikan tunggal, melainkan ribuan perbaikan atau sekumpulan atomic habits yang saling bertumpuk dan menjadi unit dasar dalam suatu sistem yang penting.
+            James Clear menjelaskan bahwa terdapat tiga tingkat perubahan yaitu perubahan hasil, perubahan proses, dan perubahan identitas. Cara paling efektif dalam mengubah kebiasaan adalah bukan berfokus pada apa yang ingin dicapai, melainkan tipe orang seperti apa yang diinginkan. Identitas seseorang muncul dari kebiasaan yang dilakukan setiap harinya. Alasan utama kebiasaan penting karena kebiasaan dapat mengubah keyakinan tentang diri sendiri.
+            Clear juga memperkenalkan empat Kaidah Perubahan Perilaku untuk membantu mengubah perilaku manusia yaitu menjadikannya terlihat, menjadikannya menarik, menjadikannya mudah, menjadikannya memuaskan. Keempat kaidah ini tidak hanya mengajari kita cara menciptakan kebiasaan-kebiasaan baru, melainkan menyingkapi sejumlah wawasan menarik tentang perilaku manusia.
+          </div>
     </div>
   </div>
 
+  <!-- REVIEW -->
   <div class="reviews">
     <h2>Ulasan Pembaca</h2>
 
     <div class="review-card">
       <div class="stars">★★★★★</div>
-      <div class="reviewer">Pradana</div>
-      <p>Peak sci-fi! Dunia yang dibangun sangat detail dan epik.</p>
+      <div class="reviewer">Alya</div>
+      <p>Sangat membantu memahami kebiasaan kecil yang berdampak besar.</p>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="reviewer">Raka</div>
+      <p>Wajib dibaca untuk yang ingin berkembang secara konsisten.</p>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <div class="reviewer">Nadia</div>
+      <p>Inspiratif dan mudah dipraktikkan dalam kehidupan sehari-hari.</p>
     </div>
   </div>
 </div>
@@ -215,12 +253,12 @@
 <script>
 function tambahKeKeranjang() {
   const buku = {
-    id: 105,
-    judul: "Dune",
-    penulis: "Frank Herbert",
-    harga: 129000,
-    hargaDiskon: 129000,
-    gambar: "dune.jpeg",
+    id: 101,
+    judul: "Atomic Habits",
+    penulis: "James Clear",
+    harga: 108000,
+    hargaDiskon: 86400,
+    gambar: "anatomic habits.jpeg",
     tipe: "Soft Cover",
     quantity: 1
   };
